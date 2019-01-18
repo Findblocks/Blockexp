@@ -22,6 +22,10 @@ html
     script(src='//cdn.datatables.net/responsive/1.0.1/js/dataTables.responsive.js')
     script(src='//cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.js')
     script(src='/javascripts/chart.js')
+    script(src='/javascripts/analytics.js')
+    script(src='/javascripts/amcharts/amcharts.js')
+    script(src='/javascripts/amcharts/serial.js')
+    script(src='/javascripts/amcharts/themes/light.js')
     script.
       $(document).ready(function(){
         $('##{active}').addClass('active');
@@ -176,7 +180,7 @@ html
               #masternodepanel
                 span.glyphicon.fa.fa-exclamation-triangle
                 label#masternodeCountOffline -
-                label &nbsp;&#x2F;&nbsp;        
+                label &nbsp;&#x2F;&nbsp;
                 label#masternodeCountOnline -
                 span.glyphicon.fa.fa-check-circle
         .col-md-2
@@ -204,7 +208,7 @@ html
                   <br>
                   label#lblX1
                 else
-                  label#lastPrice -                
+                  label#lastPrice -
 
       .row.text-center(style='margin-top:10px;margin-bottom:20px;')
         form.form-inline(method='post', action='/search')
