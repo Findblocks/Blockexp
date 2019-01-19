@@ -43,7 +43,6 @@ mongoose.connect(dbString, { useNewUrlParser: true }, function (err) {
                         loop.next();
                     });
                 });
-            }
           }
         });
       }, function () {
