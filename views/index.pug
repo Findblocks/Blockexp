@@ -3,62 +3,61 @@ extends layout
 block content
   script.
     $(document).ready(function () {
-      $.ajax({
-        url: '/ext/getlasttxs/0.00000001',
-        success: function (result) {
-          var extdata = result.data;
-          extdata.sort(function (a, b) {
-            return a.blockindex - b.blockindex;//正序
-          });
-          //alert( 'test+++' );
-          AmCharts.makeChart("chartdiv", {
-            "type": "serial",
-            "theme": "dark",
-            "marginRight": 80,
-            "dataProvider": result.data,
-            "valueAxes": [{
-              "position": "left",
-              "title": "Difficulty",
-              "axisColor": "#e7e7e7",
-              "fillColor": "#e7e7e7"
-            }],
-            "graphs": [{
-              "id": "g1",
-              "fillAlphas": 0.4,
-              "valueField": "difficult",
-              "balloonText": "<div style='margin:5px; font-size:19px;'>Diff(POS):<b> [[value]]</b></div>"
+      function update_charts() {
+        $.ajax({
+          url: '/ext/getlasttxs/0.00000001',
+          success: function (result) {
+            var extdata = result.data;
+            extdata.sort(function (a, b) {
+                return a.blockindex - b.blockindex;//正序
+            });
+            //alert( 'test+++' );
+            AmCharts.makeChart("chartdiv", {
+              "type": "serial",
+              "theme": "dark",
+              "marginRight": 80,
+              "dataProvider": result.data,
+              "valueAxes": [{
+                "position": "left",
+                "title": "Difficulty",
+                "axisColor": "#e7e7e7",
+                "fillColor": "#e7e7e7"
+              }],
+              "graphs": [{
+                "id": "g1",
+                "fillAlphas": 0.4,
+                "valueField": "difficult",
+                "balloonText": "<div style='margin:5px; font-size:19px;'>Diff(POS):<b> [[value]]</b></div>"
               }
-            ],
-            "chartCursor": {
-              "categoryBalloonDateFormat": "JJ:NN, DD MMMM",
-              "cursorPosition": "mouse"
-            },
-            "categoryField": "blockindex",
-            "categoryAxis": {
-              "gridAlpha": 0,
-              "position": "left",
-              "labelsEnabled": true,
-              "tickLength": 0,
-              "axisColor": "#e7e7e7",
-              "fillColor": "#e7e7e7"
-            },
-            "export": {
-              "enabled": true,
-            }
-          });
-          //alert( 'test---' );
-        },
-        error: function () {
-          alert('test');
-        }
-        //success: function( result ) {
-        //var chart = AmCharts.makeChart("chartdiv",{});
-        //};
-      });
-    });
-  script.
-    $(document).ready(function(){
-      var rtable = $('#recent-table').dataTable( {  
+              ],
+              "chartCursor": {
+                "categoryBalloonDateFormat": "JJ:NN, DD MMMM",
+                "cursorPosition": "mouse"
+              },
+              "categoryField": "blockindex",
+              "categoryAxis": {
+                "gridAlpha": 0,
+                "position": "left",
+                "labelsEnabled": true,
+                "tickLength": 0,
+                "axisColor": "#e7e7e7",
+                "fillColor": "#e7e7e7"
+              },
+              "export": {
+                "enabled": true,
+              }
+            });
+            //alert( 'test---' );
+          },
+          error: function () {
+            alert('test');
+          }
+          //success: function( result ) {
+          //var chart = AmCharts.makeChart("chartdiv",{});
+          //};
+        });
+      }
+      var rtable = $('#recent-table').dataTable( {
         language: { url: '/datatable/lang' },
         autoWidth: true,      
         searching: false,
@@ -90,6 +89,7 @@ block content
       });
       setInterval( function () {
         rtable.api().ajax.reload(null, false);
+        update_charts();
       }, 60000 );
     });
   <div class="col-md-offset-5 col-md-2" style="text-align:center;"><label>Network Difficulty</label></div><div class="col-md-offset-5"></div>
