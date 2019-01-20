@@ -15,7 +15,7 @@ block content
             "type": "serial",
             "theme": "dark",
             "marginRight": 80,
-            "dataProvider": result.data,
+            // "dataProvider": result.data,
             "dataLoader": {
               "url": "/ext/getlasttxs/0.00000001",
               "format": "json",
@@ -25,6 +25,7 @@ block content
                 extdata.sort(function (a, b) {
                   return a.blockindex - b.blockindex;//正序
                 });
+                return extdata;
               }
             },  
             "valueAxes": [{
