@@ -15,23 +15,7 @@ block content
             "type": "serial",
             "theme": "dark",
             "marginRight": 80,
-            // "dataProvider": result.data,
-            "dataLoader": {
-              "url": "/ext/getlasttxs/0.00000001",
-              "format": "json",
-              "reload": 5,
-              "postProcess": function (result) {
-                var extdata = result.data;
-                extdata.sort(function (a, b) {
-                  return a.blockindex - b.blockindex;//正序
-                });
-                console.log(extdata);
-                return extdata;
-              },
-              "showErrors": true,
-              "noStyles": true,
-              "async": true
-            },  
+            "dataProvider": result.data,
             "valueAxes": [{
               "position": "left",
               "title": "Difficulty",
