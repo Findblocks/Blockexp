@@ -5,15 +5,15 @@
 */
 {
   // name your instance!
-  "title": "MNT Block Explorer",
+  "title": "Block Explorer",
 
-  "address": "127.0.0.1:3001",
+  "address": "blockexp.com:3001",
 
   // coin name
-  "coin": "MNTrackerCoin",
+  "coin": "",
 
   // coin symbol
-  "symbol": "MNT",
+  "symbol": "",
 
   // language settings
   "languages" : ["us"],
@@ -30,16 +30,16 @@
   //     Cerulean, Cosmo, Cyborg, Darkly, Flatly, Journal, Lumen, Paper,
   //     Readable, Sandstone, Simplex, Slate, Spacelab, Superhero, United, Yeti
   // theme (see /public/themes for available themes)
-  "theme": "Sandstone",
+  "theme": "Cyborg",
 
   // port to listen for requests on.
   "port" : 3001,
 
   // database settings (MongoDB)
   "dbsettings": {
-    "user": "mntuser",
-    "password": "mnt",
-    "database": "explorerdb",
+    "user": "mongo",
+    "password": "mongo",
+    "database": "mongo",
     "address": "localhost",
     "port": 27017
   },
@@ -52,8 +52,8 @@
   "wallet": {
     "host": "localhost",
     "port": 5270,
-    "user": "mntuser",
-    "pass": "mntpwd"
+    "user": "changeme",
+    "pass": "changeme"
   },
 
   // confirmations
@@ -133,13 +133,13 @@
   },
 
   // twitter, facebook, googleplus, bitcointalk, github, slack, website
-  "twitter": "mnt_io",
-  "facebook": "mnt.io",
-  "googleplus": "yourgooglepluspage",
-  "bitcointalk": "3922106.0",
-  "github": "MNTracker",
-  "slack": "yourfullslackinviteurl",
-  "website": "https://mnt.io",
+  "twitter": "findblocks",
+  "facebook": "",
+  "googleplus": "",
+  "bitcointalk": "",
+  "github": "",
+  "slack": "",
+  "website": "http://Findblocks.wales",
 
   //genesis
   "genesis_tx": "e099d1f9fe9490d294f1ac75a89a03ff99bcbd61fc97b3d3297890b21a426ded",
@@ -165,7 +165,7 @@
   // how to acquire network hashrate
   // getnetworkhashps: uses getnetworkhashps api call, returns in GH/s
   // netmhashps: uses getmininginfo.netmhashpsm returns in MH/s
-  "nethash": "getnetworkhashps",
+  "nethash": "netmhashps",
 
   // nethash unitd: sets nethash API return units
   // valid options: "P" (PH/s), "T" (TH/s), "G" (GH/s), "M" (MH/s), "K" (KH/s)
